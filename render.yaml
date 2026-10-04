@@ -1,0 +1,17 @@
+# Render.com Blueprint: Dashboard > New > Blueprint > pick your GitHub repo.
+services:
+  - type: web
+    name: gate-da-companion
+    runtime: docker
+    plan: starter              # $7/mo; free instances cannot have a persistent disk
+    healthCheckPath: /healthz
+    numInstances: 1            # keep at 1: the app stores data in a single SQLite file
+    disk:
+      name: gate-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: APP_PASSWORD      # you type this in the browser prompt (username can be anything)
+        sync: false
+      - key: GEMINI_API_KEY    # or ANTHROPIC_API_KEY. Or leave empty and paste the key in the app's Settings
+        sync: false
