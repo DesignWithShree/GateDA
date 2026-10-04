@@ -4,7 +4,6 @@ import json
 import shutil
 from pathlib import Path
 from typing import List, Optional
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
@@ -23,8 +22,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://gate-da-lime.vercel.app",
+        "https://gate-laomqi6al-shreeyashshedge212-4352s-projects.vercel.app",
     ],
-    allow_origin_regex=r"https://gate-da-[a-z0-9-]+-shreeyashshedge212-4352s-pr\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
