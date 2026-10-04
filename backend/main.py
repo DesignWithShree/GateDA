@@ -4,7 +4,7 @@ import json
 import shutil
 from pathlib import Path
 from typing import List, Optional
-
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
