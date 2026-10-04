@@ -21,7 +21,10 @@ core.init_db()
 app = FastAPI(title="GATE DA Companion")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://gate-da-lime.vercel.app"],
+    allow_origins=[
+        "https://gate-da-lime.vercel.app",
+    ],
+    allow_origin_regex=r"https://gate-da-[a-z0-9-]+-shreeyashshedge212-4352s-pr\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
