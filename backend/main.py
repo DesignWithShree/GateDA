@@ -19,6 +19,15 @@ from .syllabus import SECTION_BOOKS, SECTION_RESOURCES, SUBJECT_BOOKS, SUBJECT_C
 
 core.init_db()
 app = FastAPI(title="GATE DA Companion")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://gate-da-lime.vercel.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(study.router)
 app.include_router(backup.router)
 backup.start_auto_backup()
